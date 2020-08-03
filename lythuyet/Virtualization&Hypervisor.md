@@ -10,9 +10,9 @@
  [**Loại 1**: Native](#Native)
 
  [**Loại 2**: Hosted](#Hosted)
- 
+
 6. [Các thành phần của một hệ thống ảo hóa](#element)
-7. [Ảo hóa hoạt động như thế nào](#active)
+7. [Ảo hóa hoạt động như thế nào?](#active)
 8. [Mục Tiêu của Ảo hóa](#target)
 9. [Lợi ích và nhược điểm của Ảo hóa](#loiich)
 
