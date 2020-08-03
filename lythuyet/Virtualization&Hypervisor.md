@@ -7,9 +7,10 @@
 5. [Hypervisor/VMM là gì?](#Hypervisor)
 
 [Hypervisor hoạt động như thế nào](Hypervisor-active.md)
- [**Loại 1**: Native](#Native)
 
- [**Loại 2**: Hosted](#Hosted)
+[**Loại 1**: Native](#Native)
+
+[**Loại 2**: Hosted](#Hosted)
 
 6. [Các thành phần của một hệ thống ảo hóa](#element)
 7. [Ảo hóa hoạt động như thế nào?](#active)
