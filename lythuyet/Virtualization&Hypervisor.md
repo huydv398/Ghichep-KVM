@@ -10,6 +10,7 @@
  [**Loại 1**: Native](#Native)
 
  [**Loại 2**: Hosted](#Hosted)
+ 
 6. [Các thành phần của một hệ thống ảo hóa](#element)
 7. [Ảo hóa hoạt động như thế nào](#active)
 8. [Mục Tiêu của Ảo hóa](#target)
@@ -18,7 +19,7 @@
 <a name="Virtualization"></a>
 
 ### Virtualization là gì?
-Virtualization, hay còn gọi là ảo hóa, là một công nghệ thiết kế *** để tạo ra phần trung gian giữa hệ thống và phần cứng máy tính và phần mềm chạy trên nó***. Ý tưởng của công nghệ ảo hóa máy chủ là **từ một máy vật lý** đơn giản **tạo** ra **nhiều máy ảo** độc lập. **Mỗi máy ảo** đều có **thiết lập** nguồn h**ệ thống riêng biệt**,**hệ điều hành riêng và ứng ụng riêng**. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
+Virtualization, hay còn gọi là ảo hóa, là một công nghệ thiết kế ***để tạo ra phần trung gian giữa hệ thống và phần cứng máy tính và phần mềm chạy trên nó***. Ý tưởng của công nghệ ảo hóa máy chủ là **từ một máy vật lý** đơn giản **tạo** ra **nhiều máy ảo** độc lập. **Mỗi máy ảo** đều có **thiết lập** nguồn h**ệ thống riêng biệt**,**hệ điều hành riêng và ứng ụng riêng**. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
 
 >**Ý nghĩa**: ẢO HÓA LÀ PHƯƠNG PHÁP ĐỂ TẠO RA PHIÊN BẢN ẢO HÓA TRÊN MÁY TÍNH VẬT LÝ.
 
@@ -30,7 +31,7 @@ Tiết kiệm chi phí và tối ưu hóa hạ tầng CNTT là điều các doan
 <a name="Hypervisor"></a>
 ### Hypervisor/VMM(Virtual Machine Monitor) là gì?
 
-**Hypervisor** hay còn gọi là phần mềm giám sát máy ảo: l***à một chương trình phần mềm quản lý môt hoặc nhiều máy ảo VM***. Nó được sử dụng để **tạo**, **Startup**, **Suspend** và **reset** lại các **máy ảo**. Các Hypervisor cho phép mỗi VM hoặc "Guest" truy cập vào phần cứng vật lý bên dưới, Chẳng hạn như CPU, RAM, Disk. Nó cũng có thể giới hạn tài nguyên hệ thống mà mỗi máy ảo có thể dụng để đảm bỏa  cho nhiều máy ảo cùng sử dụng đồng thời trên một hệ thống.
+**Hypervisor** hay còn gọi là phần mềm giám sát máy ảo: ***là một chương trình phần mềm quản lý môt hoặc nhiều máy ảo VM***. Nó được sử dụng để **tạo**, **Startup**, **Suspend** và **reset** lại các **máy ảo**. Các Hypervisor cho phép mỗi VM hoặc "Guest" truy cập vào phần cứng vật lý bên dưới, Chẳng hạn như CPU, RAM, Disk. Nó cũng có thể giới hạn tài nguyên hệ thống mà mỗi máy ảo có thể dụng để đảm bỏa  cho nhiều máy ảo cùng sử dụng đồng thời trên một hệ thống.
 >**Ý nghĩa**: Hypervisor là các phần mềm công nghệ để tạo máy ảo và giám sát, điều khiển máy ảo. Muốn Ảo Hóa thì cài Hypervisor nào đó.
 
 <a name="Native"></a>
