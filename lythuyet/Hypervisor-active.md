@@ -8,3 +8,4 @@ Các thành phần cấu hình của một hệ thống ảo hóa như sau:
 
 Tuy nhiên, cần lưu ý một vài Hypervisor chỉ hỗ trợ một số OS hệ điều hành
 
+ss
