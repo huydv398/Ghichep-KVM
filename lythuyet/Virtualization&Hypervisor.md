@@ -1,5 +1,4 @@
 # Note Overview Virtualization và Hypervisor
-https://www.thegioimaychu.vn/blog/ao-hoa/huong-dan-tong-quan-ve-ao-hoa-vmware-p3588/
 
 1. [Virtualization là gì?](#1)
 2. [Tại sao lên sử dụng công nghệ ảo hóa](#whyuse)
@@ -19,9 +18,10 @@ https://www.thegioimaychu.vn/blog/ao-hoa/huong-dan-tong-quan-ve-ao-hoa-vmware-p3
 <a name="Virtualization"></a>
 
 ### Virtualization là gì?
-Virtualization, hay còn gọi là ảo hóa, là một công nghệ thiết kế  để tạo ra phần trung gian giữa hệ thống và phần cứng máy tính và phần mềm chạy trên nó. Ý tưởng của công nghệ ảo hóa máy chủ là từ một máy vật lý đơn giản tạo ra nhiều máy ảo độc lập. Mỗi máy ảo đều có thiết lập nguồn hệ thống riêng biệt, hệ điều hành riêng và ứng ụng riêng. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
+Virtualization, hay còn gọi là ảo hóa, là một công nghệ thiết kế *** để tạo ra phần trung gian giữa hệ thống và phần cứng máy tính và phần mềm chạy trên nó***. Ý tưởng của công nghệ ảo hóa máy chủ là **từ một máy vật lý** đơn giản **tạo** ra **nhiều máy ảo** độc lập. **Mỗi máy ảo** đều có **thiết lập** nguồn h**ệ thống riêng biệt**,**hệ điều hành riêng và ứng ụng riêng**. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
 
 >**Ý nghĩa**: ẢO HÓA LÀ PHƯƠNG PHÁP ĐỂ TẠO RA PHIÊN BẢN ẢO HÓA TRÊN MÁY TÍNH VẬT LÝ.
+
 <a name="whyuse"></a>
 ### Tại sao lên sử dụng công nghệ ảo hóa
 
@@ -30,13 +30,13 @@ Tiết kiệm chi phí và tối ưu hóa hạ tầng CNTT là điều các doan
 <a name="Hypervisor"></a>
 ### Hypervisor/VMM(Virtual Machine Monitor) là gì?
 
-Hypervisor hay còn gọi là phần mềm giám sát máy ảo: là một chương trình phần mềm quản lý môt hoặc nhiều máy ảo VM. Nó được sử dụng để tạo, Startup, Suspend và reset lại các máy ảo. Các Hypervisor cho phép mỗi VM hoặc "Guest" truy cập vào phần cứng vật lý bên dưới, Chẳng hạn như CPU, RAM, Disk. Nó cũng có thể giới hạn tài nguyên hệ thống mà mỗi máy ảo có thể dụng để đảm bỏa  cho nhiều máy ảo cùng sử dụng đồng thời trên một hệ thống.
+**Hypervisor** hay còn gọi là phần mềm giám sát máy ảo: l***à một chương trình phần mềm quản lý môt hoặc nhiều máy ảo VM***. Nó được sử dụng để **tạo**, **Startup**, **Suspend** và **reset** lại các **máy ảo**. Các Hypervisor cho phép mỗi VM hoặc "Guest" truy cập vào phần cứng vật lý bên dưới, Chẳng hạn như CPU, RAM, Disk. Nó cũng có thể giới hạn tài nguyên hệ thống mà mỗi máy ảo có thể dụng để đảm bỏa  cho nhiều máy ảo cùng sử dụng đồng thời trên một hệ thống.
 >**Ý nghĩa**: Hypervisor là các phần mềm công nghệ để tạo máy ảo và giám sát, điều khiển máy ảo. Muốn Ảo Hóa thì cài Hypervisor nào đó.
 
 <a name="Native"></a>
-### Loại 1: Native
+### Loại 1: **Native**
 
-Một Hypervisor ở dạng native (hay còn gọi là "bare-metal") chạy trực tiếp trên phần cứng. nó nằm giữa phần cứng và một hệ điều hành khách (Guest Operating System). Nó được khởi động trước hệ điều hành và tương tác trực tiếp với kernel. Điều này mang lại hiệu suất cao nhất có thể vì không có hệ điều hành chính nào cạnh tranh tài nguyên máy tính với nó. Tuy nhiên, nó có thể đồng nghĩa với việc hệ thống chỉ có thể sử dụng để chạy các máy ảo vì Hypervisor luôn phải chạy ngầm bên dưới.
+Một Hypervisor ở dạng native (hay còn gọi là "bare-metal") **chạy trực tiếp trên phần cứng**. nó nằm giữa phần cứng và một hệ điều hành khách (Guest Operating System). Nó được khởi động trước hệ điều hành và tương tác trực tiếp với kernel. Điều này mang lại **hiệu suất cao nhất** có thể vì *không có hệ điều hành chính* nào *cạnh tranh tài nguyên máy tính* với nó. Tuy nhiên, nó có thể đồng nghĩa với việc hệ thống chỉ có thể sử dụng để chạy các máy ảo vì Hypervisor luôn phải chạy ngầm bên dưới.
 
 Các Hypervisor dạng Native này có hteer kể như VMware ESXi, Microsoft Hyper-V và Apple boot Camp.
 
@@ -44,10 +44,10 @@ Các Hypervisor dạng Native này có hteer kể như VMware ESXi, Microsoft Hy
 
 
 <a name="Hosted"></a>
-### Loại 2: Hosted
+### Loại 2: **Hosted**
 
-Một Hypervisor dạng Hosted được cài đặt trên một máy tính chủ (host computer)
-, mà trong đó có một hệ điều hành đã được cài đặt. Nó chạy như một ứng dụng cũng như các phần mềm khác trên máy tính. Hầu hết các Hypervisor dạng hosted có thể quản lý và chạy nhiều máy ảo cùng một lúc. Lợi thế của một Hypervisor hosted là có thể được bật lên hoặc thoát ra khi cần thiết, giải phóng tài nguyên cho máy chủ. Tuy nhiên, vì chạy trên một hệ điều hành, nó có thể đem lại hiệu suất tương tự như một Hypervisor ở dạng Native.
+Một Hypervisor dạng Hosted được **cài đặt trên một máy tính** chủ (host computer)
+, mà trong đó *có một hệ điều hành đã được cài đặt*. Nó **chạy như một ứng dụng** cũng như các phần mềm khác trên máy tính. Hầu hết các Hypervisor dạng hosted **có thể quản lý và chạy nhiều máy ảo cùng một lúc**. Lợi thế của một Hypervisor hosted là có thể được bật lên hoặc thoát ra khi cần thiết, giải phóng tài nguyên cho máy chủ. Tuy nhiên, vì chạy trên một hệ điều hành, nó có thể đem lại hiệu suất tương tự như một Hypervisor ở dạng Native.
 
 Ví dụ về các Hypervisor dạng hosted bao gồm VMwaware Workstation, Oracle VirtualBox và Parallels Desktop for Mac.
 
@@ -65,12 +65,12 @@ Virtual Machine-VM hay còn gọi là máy ảo, là một môi trường hoạt
 <a name="element"></a>
 ## Các thành phần của một hệ thống ảo hóa
 
-* Tài nguyên vật lý chính: Máy chủ vật lý, CPU, RAM, Ổ đĩa cứng, Card mạng.. Nhiệm vụ là chia tài nguyên cấp cho các máy ảo.
-* Phần mềm ảo hóa(Hypervisor): Cung cấp truy cập cho mỗi máy chủ ảo đến tài nguyên của máy chủ vật lý, Lập kế hoạch phân chia tài nguyên của máy chủ vật lý cho các máy chủ ảo.
-* Hệ điều hành Khách(Guest Operating System): được cài đặt trên một máy chủ ảo, thao tác như ở trên hệ điều hành thông thường.
-* Máy ảo(Virtual machine): Nó hoạt động như một máy chủ vật lý thông thường với tài nguyên riêng, giao diện riêng, hệ điều hành riêng.
+* **Tài nguyên vật lý** chính: Máy chủ vật lý, CPU, RAM, Ổ đĩa cứng, Card mạng.. Nhiệm vụ là chia tài nguyên cấp cho các máy ảo.
+* **Phần mềm ảo hóa**(Hypervisor): Cung cấp truy cập cho mỗi máy chủ ảo đến tài nguyên của máy chủ vật lý, Lập kế hoạch phân chia tài nguyên của máy chủ vật lý cho các máy chủ ảo.
+* H**ệ điều hành Khách**(Guest Operating System): được cài đặt trên một máy chủ ảo, thao tác như ở trên hệ điều hành thông thường.
+* **Máy ảo**(Virtual machine): Nó hoạt động như một máy chủ vật lý thông thường với tài nguyên riêng, giao diện riêng, hệ điều hành riêng.
 
-Một hệ thống ảo hóa bắt buộc phải có đầy đủ các thành phần: tài nguyên vật lý, phần mềm ảo hóa, máy chủ ảo và hệ điều hành khách. Khi có đầy đủ 4 thành phần của hệ thống ảo hóa, máy chủ ảo và hệ điều hành khách. Khi có đầy đủ 4 thành phần của hệ thống ảo hóa, người dùng có thể dễ dàng xây dựng cho mình một hệ thống ứng dụng ảo hóa hoàn chỉnh
+Một **hệ thống ảo hóa bắt buộc** phải có đầy đủ các thành phần: **tài nguyên vật lý**, phần mềm ảo hóa, máy chủ ảo và hệ điều hành khách. Khi có đầy đủ 4 thành phần của hệ thống ảo hóa, máy chủ ảo và hệ điều hành khách. Khi có đầy đủ 4 thành phần của hệ thống ảo hóa, người dùng có thể dễ dàng xây dựng cho mình một hệ thống ứng dụng ảo hóa hoàn chỉnh
 
 <a name="active"></a>
 ## Ảo hóa hoạt động như thế nào?
@@ -105,3 +105,7 @@ Một hệ thống ảo hóa bắt buộc phải có đầy đủ các thành ph
 
 
 
+Link tham khảo:
+https://news.cloud365.vn/kvm-tong-quan-ve-virtualization-va-hypervisor/
+
+https://www.thegioimaychu.vn/blog/ao-hoa/huong-dan-tong-quan-ve-ao-hoa-vmware-p3588/
