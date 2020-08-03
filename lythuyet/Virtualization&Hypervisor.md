@@ -1,4 +1,5 @@
 # Note Overview Virtualization và Hypervisor
+https://www.thegioimaychu.vn/blog/ao-hoa/huong-dan-tong-quan-ve-ao-hoa-vmware-p3588/
 
 1. [Virtualization là gì?](#1)
 2. [Tại sao lên sử dụng công nghệ ảo hóa](#whyuse)
@@ -16,7 +17,7 @@
 
 <a name="Virtualization"></a>
 ### Virtualization là gì?
-Virtualization, hay còn gọi là ảo hóa, là một công nghệ thiết để tạo ra phần trung gian giữa hệ thống và phần cứng máy tính và phần mềm chạy trên nó. Ý tưởng của công nghệ ảo hóa máy chủ là từ một máy vật lý đơn giản tạo ra nhiều máy ảo độc lập. Mỗi máy ảo đều có thiết lập nguồn hệ thống riêng biệt, hệ điều hành riêng và ứng ụng riêng. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
+Virtualization, hay còn gọi là ảo hóa, là một công nghệ thiết kế  để tạo ra phần trung gian giữa hệ thống và phần cứng máy tính và phần mềm chạy trên nó. Ý tưởng của công nghệ ảo hóa máy chủ là từ một máy vật lý đơn giản tạo ra nhiều máy ảo độc lập. Mỗi máy ảo đều có thiết lập nguồn hệ thống riêng biệt, hệ điều hành riêng và ứng ụng riêng. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
 
 >**Ý nghĩa**: ẢO HÓA LÀ PHƯƠNG PHÁP ĐỂ TẠO RA PHIÊN BẢN ẢO HÓA TRÊN MÁY TÍNH VẬT LÝ.
 <a name="whyuse"></a>
@@ -114,3 +115,18 @@ Có 4 loại CPU Virtualization:
 
 Trong giải pháp này, Các Non-virtualizable intruction từ guest OS được translate qua Binary translation ở Virtualization layer và cache lại kết quả dùng cho các lần sau. Còn user level Application thì thực hiện direct execution xuyên qua Virtualization layer. Bằng cách này, trở ngại các chỉ thị guest OS không hoạt động ở ring khác 0bij vượt qua còn các user level Application vẫn hoạt động ở Native Speed (Tốc độ đáp ứng yêu cầu giống như khi không có ảo hóa). Guest OS hoàn toàn không nhận ra nó đang nằm trên một lớp ảo hóa vì các Low-level request không có gì thay đổi. Do đó Guest OS hoàn toàn không phải chỉnh sửa gì.
 
+## Các thành phần của một hệ thống ảo hóa
+
+* Tài nguyên vật lý chính: Máy chủ vật lý, CPU, RAM, Ổ đĩa cứng, Card mạng.. Nhiệm vụ là chia tài nguyên cấp cho các máy ảo.
+* Phần mềm ảo hóa(Hypervisor): Cung cấp truy cập cho mỗi máy chủ ảo đến tài nguyên của máy chủ vật lý, Lập kế hoạch phân chia tài nguyên của máy chủ vật lý cho các máy chủ ảo.
+* Hệ điều hành Khách(Guest Operating System): được cài đặt trên một máy chủ ảo, thao tác như ở trên hệ điều hành thông thường.
+* Máy ảo(Virtual machine): Nó hoạt động như một máy chủ vật lý thông thường với tài nguyên riêng, giao diện riêng, hệ điều hành riêng.
+
+Một hệ thống ảo hóa bắt buộc phải có đầy đủ các thành phần: tài nguyên vật lý, phần mềm ảo hóa, máy chủ ảo và hệ điều hành khách. Khi có đầy đủ 4 thành phần của hệ thống ảo hóa, máy chủ ảo và hệ điều hành khách. Khi có đầy đủ 4 thành phần của hệ thống ảo hóa, người dùng có thể dễ dàng xây dựng cho mình một hệ thống ứng dụng ảo hóa hoàn chỉnh
+
+## Ảo hóa hoạt động như thế nào?
+
+Ảo hóa được xay dựng dựa trên giải pháp chia 1 máy vật lý thành nhiều máy VM. Virtual Machine Monitor (VMM) hay còn được gọi là Hypervisor -  Cho phép tạo tách rời các máy ảo và điều phối truy cập của các máy ảo này đến tài nguyên phần cứng và cấp phát tài nguyên tự động theo nhu cầu sử dụng.
+* Nhiều ứng dụng chạy trên 1 server, mỗi VM được lập trình trên máy chủ, do đó nhiều ứng dụng và các hệ diều hành có thể cùng lúc chạy trên host.
+* Tối đa hóa công suất sử dụng và tối thiểu hóa server: mỗi máy chủ vật lý đươc sự dụng với đầy đủ công suất, cho phép giảm đáng kể chi phí nhờ sử dụng tối đa server.
+* Cấp phát tài nguyên và ứng dụng nhanh chóng, dễ dàng. VM được triển khai từ một file chứa đầy đủ phần mềm với cơ chế đơn giản là copy và mang điều này đến sự giản đơn, nhanh chóng và linh hoạt chưa từng có cho việc quản lý và cung cấp hạ tầng công nghệ thông tin. Máy ảo thậm chí có thể di chuyển sang một server vật lý khác trong khi vẫn đang chạy, Hoạt động bình thường. Doanh nghiệp có thể ảo hóa những ứng dụng quan trọng của doanh nghiệp để nâng cao hiệu suất, sự ổn định, khả năng mở rộng và giảm thiểu chi phí.
