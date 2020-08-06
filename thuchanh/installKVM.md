@@ -7,7 +7,7 @@ KVM(Kernel-based Virtual Machine) được biết đến là một cơ sở hạ
 * File ISO của hệ điều hành để cài lên máy ảo KVM
 
 ### Mô hình
-
+ 
 ![Hdv](../image/Screenshot_9.png)
 
 Cấu hình đưa ENS33 về IP Static.
@@ -32,7 +32,7 @@ Nếu máy trả kết là 0, thì máy không hỗ trợ ảo hóa. Còn khác 
 
 Nếu VMware, ta phải bật hỗ trợ ảo hóa trong Vitual Machine Setting của máy ảo. Đánh dấu vào 2 ô như hình dưới đây:
 
-[Hdv](../image/Screenshot_16.png)
+![Hdv](../image/Screenshot_16.png)
 
 ### Cài đặt các gói cần thiết 
 
