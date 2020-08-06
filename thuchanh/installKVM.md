@@ -169,4 +169,4 @@ Check lại thông tin cho VM
 
 ` virsh list --all`
 
-![huydv](../image/Screenshot_.png)
+![huydv](../image/Screenshot_30.png)
