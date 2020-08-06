@@ -9,6 +9,7 @@
 
 2. [Phân loại Ảo hóa](lythuyet/Virtualization.md)
 3. [Tìm hiểu về KVM](lythuyet/infoKVM.md)
+4. [Tìm hiểu về Mô hình mạng trong KVM](lythuyet/mod-network.md)
 
 ## Thực hành
 1. [Cài đặt KVM in CentOS-7](thuchanh/installKVM.md)
