@@ -170,3 +170,21 @@ Check lại thông tin cho VM
 ` virsh list --all`
 
 ![huydv](../image/Screenshot_30.png)
+
+## Quản lý các máy ảo đã tạo
+
+Để tạo các bản snapshot ra chọn lần lượt các bước sau
+
+![huydv](../image/Screenshot_32.png)
+
+![huydv](../image/Screenshot_33.png)
+
+Để revert lại snapshot đã tạo
+
+![huydv](../image/Screenshot_34.png)
+
+![huydv](../image/Screenshot_35.png)
+
+Để xem thông tin phần cứng đã chọn
+
+![huydv](../image/Screenshot_36.png)
