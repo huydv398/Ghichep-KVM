@@ -67,7 +67,7 @@ Ta sẽ tạo 1 card Brigde ở chế độ NAT để khi tạo KVM sẽ gắn c
 
 ```
 nmcli connection add type bridge autoconnect yes con-name br0 ifname br0
-nmcli connection modify br0 ipv4.addresses 192.168.9.4/24 ipv4.method manual  
+nmcli connection modify br0 ipv4.addresses 192.168.9.3/24 ipv4.method manual  
 nmcli connection modify br0 ipv4.gateway 192.168.9.2
 nmcli connection modify br0 ipv4.dns 8.8.8.8  
 nmcli connection delete ens33
@@ -76,6 +76,9 @@ nmcli connection add type bridge-slave autoconnect yes con-name ens33 ifname ens
 #restart network
 ```
 
+Giải thích thống số dòng thêm bridge
+
+![huydv](../image/Screenshot_14.png)
 
 nếu ssh bạn phải truy cập vào server và thực hiện câu lệnh tiếp theo do đã xóa thông tin của card Network ens33 
 
@@ -107,36 +110,63 @@ wget http://repos-va.psychz.net/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-Mini
 
 `virt-manager`
 
+Xuất hiện công cụ bằng GUI
+
+![huydv](../image/Screenshot_19.png)
+
 * Tạo máy ảo:
+
+![huydv](../image/Screenshot_20.png)
 
 * Chọn kiểu cài đặt hệ điều hành:
 
+Tại đây chọn cài hệ điều hành bằng ISO hoặc CDROM -> **Forward**
+
+![huydv](../image/Screenshot_21.png)
+
 * Chọn đường dẫn cho File ISO để cài cho VM
 
+![huydv](../image/Screenshot_22.png)
+
+![huydv](../image/Screenshot_23.png)
+
+![huydv](../image/Screenshot_24.png)
+
+![huydv](../image/Screenshot_25.png)
+
+
+
 * Cài đặt các thông số phần cứng cơ bản muốn đặt cho máy VM
-    * Phần Network selection ta sẽ gắn card mạng vào **bridge** `bro`
+
+
+![huydv](../image/Screenshot_.png)
 
 Thiết lập thông số RAM CPU:
 
-
+![huydv](../image/Screenshot_26.png)
 
 Thiết lập thông số Disk 
 
+![huydv](../image/Screenshot_27.png)
 
+* Phần Network selection ta sẽ gắn card mạng vào **bridge** `bro`
+
+![huydv](../image/Screenshot_28.png)
 
 Check lại thông tin cho VM
 
-
+![huydv](../image/Screenshot_.png)
 
 * kiểm tra và thiết lập thống số => **Begin Installation** 
 
-
+![huydv](../image/Screenshot_.png)
 
 * Sau đó thực hiện thiết lập OS như bình thường:
 
-
+![huydv](../image/Screenshot_29.png)
 
 ## Xem danh sách máy ảo và trạng thái các máy ảo KVM
 
 ` virsh list --all`
 
+![huydv](../image/Screenshot_.png)
