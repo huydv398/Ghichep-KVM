@@ -139,8 +139,6 @@ Tại đây chọn cài hệ điều hành bằng ISO hoặc CDROM -> **Forward*
 * Cài đặt các thông số phần cứng cơ bản muốn đặt cho máy VM
 
 
-![huydv](../image/Screenshot_.png)
-
 Thiết lập thông số RAM CPU:
 
 ![huydv](../image/Screenshot_26.png)
