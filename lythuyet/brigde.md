@@ -41,3 +41,23 @@ Khi ta kết nối vào switch ảo các VM sẽ nhận địa chỉ IP cùng v�
 ## Tạo và quản lý Brigde 
 Tạ tạo bridge và tiến hành set IP, rời gắn card mạng vào nó.
 
+![huydv](../image/Screenshot_65.png)
+
+
+```
+nmcli connection add type bridge autoconnect yes con-name VLan22 ifname VLan22
+nmcli connection modify VLan22 ipv4.addresses 2.2.2.3/24 ipv4.method manual
+nmcli connection modify VLan22 ipv4.gateway 2.2.2.2
+nmcli connection modify VLan22 ipv4.dns 8.8.8.8
+nmcli conn delele ens38
+nmcli connection add type bridge-slave autoconnect yes con-name ens38 ifname ens38 master VLan22
+sytemctl restart network
+```
+
+Kiểm tra lại Switch ảo trên máy KVM và các Card add vào nó, nó sử dụng lệnh
+
+`brctl show`
+
+![huydv](../image/Screenshot_66.png)
+
+Bây giờ trên VM ta có thể kết nối đến switch ảo
