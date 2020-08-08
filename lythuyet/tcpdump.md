@@ -65,19 +65,27 @@ Thực hiện trên 3 tab:
 
 `tcpdump -i eth0 icmp -w vm1.pcap`
 
-* Đứng tại VM1 Ping `8.8.8.8`: 
+* Đứng tại VM1 Ping `news.cloud365.vn`: 
 
-`ping 8.8.8.8 -c 1`
+`ping news.cloud365.vn -c 1`
 
 ### Phân tích kết quả của bản tin.
 
-* KVM
+Mô hình bắt gói tin:
+
+![Huydv](../image/Screenshot_79.png)
+
+`tap_vnet0` (tap interface): là giao diện mạng để các VM kết nối với switch do Linux Bridge tạo ra.
+
 * VM
+
+![Huydv](../image/Screenshot_77.png)
+* KVM
+
+![Huydv](../image/Screenshot_78.png)
 
 ![Huydv](../image/Screenshot_75.png)
 
 ![Huydv](../image/Screenshot_76.png)
 
-![Huydv](../image/Screenshot_77.png)
 
-![Huydv](../image/Screenshot_78.png)
