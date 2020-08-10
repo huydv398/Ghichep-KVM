@@ -6,10 +6,7 @@
 
 Hầu hết các option đều không bắt buộc. Yêu cầu tối thiểu là: `--name`, `--memory`, `--disk`, `--filesystem`.
 
-
-```
-virt-install --name=VM1 --vcpus=1 --memory=1024 --cdrom=/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso --disk=/var/lib/libvirt/images/vm1.img,size=10 --os-variant=rhel7 --graphics vnc --network bridge=br0
-```
+`virt-install --name=VM1 --vcpus=1 --memory=1024 --cdrom=/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso --disk=/var/lib/libvirt/images/vm1.img,size=10 --os-variant=rhel7 --graphics vnc --network bridge=br0`
 
 Trong đó: 
 * `Virt-install`: Câu lệnh tạo máy ảo
