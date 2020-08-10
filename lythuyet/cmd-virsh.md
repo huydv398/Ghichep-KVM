@@ -90,7 +90,7 @@ Lưu ý: snapshot chỉ được tạo khi định dạng disk ảo của ta s�
 ### Xem thông tin chi tiết về file disk của VM
 `qemu-img info [đường_dẫn_file-disk]`
 
-![huydv](../image/Screenshot_.png)
+![huydv](../image/Screenshot_94.png)
 
 ```
 image: /var/lib/libvirt//images/vm1.img
@@ -108,7 +108,7 @@ Format specific information:
 ### Xem thông tin cơ bản của 1 VM
 `virsh dominfo [name vm]`
 
-![huydv](../image/Screenshot_94.png)
+![huydv](../image/Screenshot_95.png)
 
 Link tham khao:
 
