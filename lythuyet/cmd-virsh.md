@@ -24,10 +24,7 @@ Trong đó:
 * Sử dụng option --cdrom
 * Disk phải là không gian trống
 
-```
-[root@kvm ~]# virt-install --connect qemu:///system --name iso --memory 1024 --vcpus 1 --disk /var/lib/libvirt/images/iso.image,size=10 --cdrom=/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso --network network=default --graphics vnc,listen='0.0.0.0'
-
-```
+`virt-install --connect qemu:///system --name iso --memory 1024 --vcpus 1 --disk /var/lib/libvirt/images/iso.image,size=10 --cdrom=/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso --network network=default --graphics vnc,listen='0.0.0.0'`
 
 ![huydv](../image/Screenshot_82.png)
 
