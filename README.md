@@ -18,3 +18,4 @@
 ## Thực hành
 1. [Cài đặt KVM in CentOS-7](thuchanh/installKVM.md)
 2. [Tìm hiểu câu lệnh virsh](lythuyet/cmd-virsh.md)
+3. [Làm việc với VM trong KVM](thuchanh/work.md)
