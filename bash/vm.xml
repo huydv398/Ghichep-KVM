@@ -1,9 +1,9 @@
 <domain type='kvm'>
-  <name>vm3</name>
-  <uuid>ad7c6d6e-4d34-11ea-b322-000c29502f16</uuid>
-  <memory unit='KiB'>524288</memory>
-  <currentMemory unit='KiB'>524288</currentMemory>
-  <vcpu>1</vcpu>
+  <name>namevm</name>
+  <uuid>Add_uuid</uuid>
+  <memory unit='KiB'>[ram]</memory>
+  <currentMemory unit='KiB'>[ram]</currentMemory>
+  <vcpu>[vcpu]</vcpu>
   <os>
     <type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>
     <boot dev='cdrom'/>
@@ -18,20 +18,20 @@
   <devices>
     <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type="file" device="disk">
-      <driver name="qemu" type="qcow2"/>
-      <source file="/var/lib/libvirt/images/vm3.qcow2"/>
+      <driver name="qemu" type="[type-disk]"/>
+      <source file="path-disk"/>
       <target dev="vda" bus="virtio"/>
       <address type="pci" domain="0x0000" bus="0x00" slot="0x04" function="0x0"/>
     </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
-      <source file="/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1908.iso"/>
+      <source file="path-cdrom"/>
       <target dev="hdc" bus="ide"/>
       <readonly/>
       <address type="drive" controller="0" bus="1" target="0" unit="0"/>
     </disk>
     <interface type='bridge'>
-      <source bridge='testbr'/>
+      <source bridge='Name_NIC'/>
     </interface>
     <controller type="ide" index="0">
       <address type="pci" domain="0x0000" bus="0x00" slot="0x01" function="0x1"/>
