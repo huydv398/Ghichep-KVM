@@ -104,21 +104,22 @@ Sao chép file xml từ một VM đã khởi tạo
 
 ```
 cd /etc/libvirt/qemu
-wget https://raw.githubusercontent.com/huydv398/Ghichep-KVM/master/bash/test-vm.xml
+wget https://raw.githubusercontent.com/huydv398/Ghichep-KVM/master/bash/vm.xml
+uuid
+```
+* Đổi các thông số bên dưới
+```
+sed -i 's/namevm/[Tên VM]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/Add_uuid/[điền UUID]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/[ram]/[Điền thông số muốn đặt cho RAM]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/[vcpu]/[Điền số CPU]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/[type-disk]/[điền loại raw hoặc qcow2]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/path-disk/[điền đường dẫn disk]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/path-cdrom/[điền dường dẫn của os]/g' /etc/libvirt/qemu/vm.xml
+sed -i 's/Name_NIC/[Điền tên card mạng]/g' /etc/libvirt/qemu/vm.xml
 
-#Đổi các thông số bên dưới
-
-sed -i 's/[name]/[Tên VM]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[uuid]/[điền UUID]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[ram]/[Điền thông số muốn đặt cho RAM]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[vcpu]/[Điền số CPU]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[type-disk]/[điền loại raw hoặc qcow2]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[path-disk]/[điền đường dẫn disk]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[type-cdrom]/[điền loại của CD-ROM]/g' /etc/libvirt/qemu/test-vm.xml
-sed -i 's/[path-os]/[điền dường dẫn của os]/g' /etc/libvirt/qemu/test-vm.xml
-
-#Sửa với các thông số như đã đặt ở trên
-virsh create vm-test.xml
+#Tạo với các thông số như đã đặt ở trên
+virsh create vm.xml
 ```
 
 * Khởi tạo máy ảo
