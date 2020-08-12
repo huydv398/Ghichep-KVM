@@ -131,3 +131,6 @@ Trước khi tiến hành chỉnh sửa cấu hình file XML thì sẽ tắt VM 
 
 Ta dùng lệnh `virsh edit [tên VM]` hoặc có thể sử dụng `vi`, `vim` để edit file `.xml`
 
+![huydv](../image/Screenshot_119.png)
+
+![huydv](../image/Screenshot_120.png)
