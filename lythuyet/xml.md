@@ -32,12 +32,12 @@ Có rất nhiều thành phần trong file xml này. Ở đây, ta sẽ tìm hi�
 
 ![huydv](../image/Screenshot_115.png)
 
-* 1: Name- Tên của VM
-* 2: UUID (Universally Unique Identifier)
-* 3: Memory: Dung lượng Ram của VM ,`unit` đơn vị tính của RAM
-* 4: currentMemory: dung lượng ram hiện tại
+* 1: **Name**- Tên của VM
+* 2: **UUID** (Universally Unique Identifier)
+* 3: **Memory**: Dung lượng Ram của VM ,`unit` đơn vị tính của RAM
+* 4: **currentMemory**: dung lượng ram hiện tại
 * 5: Số CPU ảo được sử dụng
-* 6: os- Hệ điều hành đang được sử dụng trên máy ảo.
+* 6: **os**- Hệ điều hành đang được sử dụng trên máy ảo.
 
 ### Các thành phần có trong device
 ***Thông số của disk***
@@ -72,7 +72,7 @@ Có rất nhiều thành phần trong file xml này. Ở đây, ta sẽ tìm hi�
 * `mac` địa chỉ MAC của card mạng
 * `source` tên card mạng được gán
 
-## Tao VM bằng file domain XML
+## Tạo VM bằng file domain XML
 ### Chuẩn bị file disk.
 Sử dụng câu lệnh
 
@@ -81,6 +81,12 @@ Sử dụng câu lệnh
 ![huydv](../image/Screenshot_116.png)
 
 ### Tạo uuid 
+tải và sử dụng câu lệnh sau để tạo UUID cho VM:
+```
+yum install -y uuid
+```
+
+`uuid`
 
 ![huydv](../image/Screenshot_117.png)
 
@@ -91,37 +97,37 @@ download hoặc chuẩn bị file ISO tại file: `/var/lib/libvirt/file-iso/`
 ![huydv](../image/Screenshot_118.png)
 
 ### Tạo một file domain XML.
-Ta sẽ tạo một máy ảo với thông số sau:
 
-* 1024 RAM, CPU: 1
-* Path disk: `/var/lib/libvirt/images/vm-test.qcow2` 
-* Path CD-ROM: `/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso`
-* Sử dụng card mạng: `br0`
-* `uuid`: e507b87a-d721-11ea-8408-000c29f4becd
-
-
-Sao chép file xml từ một VM đã khởi tạo
+sử dụng câu lệnh:
 
 ```
 cd /etc/libvirt/qemu
 wget https://raw.githubusercontent.com/huydv398/Ghichep-KVM/master/bash/vm.xml
-uuid
-```
-* Đổi các thông số bên dưới
-```
-sed -i 's/namevm/[Tên VM]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/Add_uuid/[điền UUID]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/[ram]/[Điền thông số muốn đặt cho RAM]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/[vcpu]/[Điền số CPU]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/[type-disk]/[điền loại raw hoặc qcow2]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/path-disk/[điền đường dẫn disk]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/path-cdrom/[điền dường dẫn của os]/g' /etc/libvirt/qemu/vm.xml
-sed -i 's/Name_NIC/[Điền tên card mạng]/g' /etc/libvirt/qemu/vm.xml
 
-#Tạo với các thông số như đã đặt ở trên
-virsh create vm.xml
+vi vm.xml
 ```
+
+Ta sẽ tạo một máy ảo với thông số sau:
+
+* 1024 RAM, CPU: 1
+* `uuid`: e507b87a-d721-11ea-8408-000c29f4becd
+* Path disk: `/var/lib/libvirt/images/vm-test.qcow2`(Có thể không cần tạo trước chỉ cần thêm path và kiểu raw hoặc qcow2 vào file XMl)
+* Path CD-ROM: `/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso`
+* Sử dụng card mạng: `br0`
+
+
+Tạo với các thông số như đã đặt ở trên
+
+`virsh create vm.xml`
+
 
 * Khởi tạo máy ảo
 
 `virsh create <ten_file_domain>.xml`
+
+## Chỉnh sửa cấu hình máy ảo bằng file XML
+
+Trước khi tiến hành chỉnh sửa cấu hình file XML thì sẽ tắt VM trước
+
+Ta dùng lệnh `virsh edit [tên VM]` hoặc có thể sử dụng `vi`, `vim` để edit file `.xml`
+
