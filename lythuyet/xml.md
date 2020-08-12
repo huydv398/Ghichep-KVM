@@ -117,7 +117,6 @@ sed -i 's/[path-disk]/[điền đường dẫn disk]/g' /etc/libvirt/qemu/test-v
 sed -i 's/[type-cdrom]/[điền loại của CD-ROM]/g' /etc/libvirt/qemu/test-vm.xml
 sed -i 's/[path-os]/[điền dường dẫn của os]/g' /etc/libvirt/qemu/test-vm.xml
 
-
 #Sửa với các thông số như đã đặt ở trên
 virsh create vm-test.xml
 ```
