@@ -8,8 +8,8 @@ or other application using the libvirt API.
 <domain type='kvm'>
   <name>[name]</name>
   <uuid>[uuid]</uuid>
-  <memory unit='KiB'>[ram]</memory>
-  <currentMemory unit='KiB'>[ram]</currentMemory>
+  <memory unit='[unitram]'>[ram]</memory>
+  <currentMemory unit='[unitram]'>[ram]</currentMemory>
   <vcpu>[vcpu]</vcpu>
   <os>
     <type arch='x86_64' machine='pc-i440fx-rhel7.0.0'>hvm</type>
