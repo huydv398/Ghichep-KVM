@@ -95,7 +95,6 @@ yum install -y uuid
 download hoặc chuẩn bị file ISO tại file: `/var/lib/libvirt/file-iso/`
 
 ![huydv](../image/Screenshot_118.png)
-
 ### Tạo một file domain XML.
 
 sử dụng câu lệnh:
@@ -111,7 +110,7 @@ Ta sẽ tạo một máy ảo với thông số sau:
 
 * 1024 RAM, CPU: 1
 * `uuid`: e507b87a-d721-11ea-8408-000c29f4becd
-* Path disk: `/var/lib/libvirt/images/vm-test.qcow2`(Có thể không cần tạo trước chỉ cần thêm path và kiểu raw hoặc qcow2 vào file XMl)
+* Path disk: `/var/lib/libvirt/images/vm-test.qcow2`(cần tạo file raw hoặc qcow2 trước khi thêm vào file XML)
 * Path CD-ROM: `/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso`
 * Sử dụng card mạng: `br0`
 
