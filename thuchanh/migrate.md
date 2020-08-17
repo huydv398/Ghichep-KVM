@@ -200,9 +200,9 @@ Trước khi migrate, ta sẽ chạy lệnh ping trên vm1 của KVM02
 
 ![huydv](../image/Screenshot_126.png)
 
-Migrate từ KVM-02(10.10.1.5) sang KVM-01(10.10.1.20) thực hiện câu lệnh trên KVM-02
+Migrate từ KVM-01 sang KVM-02 thực hiện câu lệnh trên KVM-02
 
-`virsh migrate --live  kvm02 qemu+tcp://10.10.1.20/system`
+`virsh migrate --live [Tên VM-KVM-01] qemu+tcp://[địa chỉ IP máy đích KVM-02]/system`
 
 ![huydv](../image/Screenshot_127.png)
 
