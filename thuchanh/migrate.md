@@ -133,15 +133,17 @@ firewall-cmd --reload
 * Bắt đầu dịch vụ:
 
 `service nfs start`
+
 * Sử dụng thư mục chứa file disk. Ở đây, ta tạo thư mục mới
 
 `mkdir storage`
 * Mount thư mục chứa máy ảo với thư mục đã share. Lưu ý: địa chỉ IP của NFS server 
 
-`mount 10.10.1.2:/root/storage/ /root/storage/`
-
+```
+mount 10.10.1.2:/root/storage/ /root/storage/
+mount /var/lib/libvirt/images/ /root/storage/
 hoặc sử dụng thư mục mặc định chứa file disk của VM
-
+```
 `mount 10.10.1.2:/root/storage/ /var/lib/libvirt/images/`
 
 Lưu ý: mỗi khi reboot lại máy ta cần mount lại các thư mục này nếu không muốn bạn mount nó bằng file `/etc/fstab`
@@ -182,8 +184,26 @@ Restart lại libvirt trên cả hai máy.
 
 ### 5.Migrate
 
-Ta kiểm tra VM trên KVM-01, và tạo một số file như hình
+Ta kiểm tra VM trên KVM-02, và tạo một số file như hình
 
 ![huydv](../image/Screenshot_125.png)
 
 ![huydv](../image/Screenshot_124.png)
+
+Trước khi migrate, ta sẽ chạy lệnh ping trên vm1 của KVM02
+
+![huydv](../image/Screenshot_126.png)
+
+Migrate từ KVM-02(10.10.1.5) sang KVM-01(10.10.1.20) thực hiện câu lệnh trên KVM-02
+
+`virsh migrate --live  kvm02 qemu+tcp://10.10.1.20/system`
+
+![huydv](../image/Screenshot_127.png)
+
+Thêm tùy chọn `--unsafe `
+
+` virsh migrate --live --unsafe VMvanphong qemu+tcp://10.10.34.119/system`
+
+![huydv](../image/Screenshot_128.png)
+
+Thực hiện thành công 
