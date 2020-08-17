@@ -1,7 +1,10 @@
 # Live migrate trên KVM
 I. [Tổng quan](#tongquan)
+
 II. [Chuẩn bị](#chuanbi)
+
 III. [Điểm nổi bật](#noibat)
+
 IV. [Cài đặt](#caidat) 
 1. [Cài đặt NFS](#nfs)
 2. [Cài đặt KVM](#kvm)
@@ -10,11 +13,6 @@ IV. [Cài đặt](#caidat)
 
 
 
-<a name="caidat"></a>
-<a name="nfs"></a>
-<a name="kvm"></a>
-<a name="qemu"></a>
-<a name="mig"></a>
 
 
 
@@ -51,6 +49,8 @@ Về cơ bản cơ chế di chuyển VM khi VM vẫn đang hoạt động. Quá 
 * Trong trường hợp người dùng đang truy cập VM tại host KVM-01 thì những sự thay đổi và hoạt động trên KVM-02 vẫn diễn ra bình thường, tuy nhiên những sự thay đổi này sẽ không được ghi nhận.
 * Những thay đổi của VM trên Host KVM-01 được đồng bộ liên tục đến host KVM-02
 * Khi đã đồng bộ xong thì VM trên host KVM-01 sẽ Offline và các phiên bản truy cập trên host KVM01 được chuyển sang host KVM02
+
+<a name="caidat"></a>
 ## Cài đặt
 ### 1.Cấu hình phân giải tên miền 
 
@@ -83,6 +83,8 @@ Nhưng nếu không có DNS thì cấu hình bằng cách sửa file `/etc/hosts
 `reboot`
 
 
+
+<a name="nfs"></a>
 
 ### 2.Cài đặt NFS
 **Trên NFS Server**
@@ -149,6 +151,8 @@ hoặc sử dụng thư mục mặc định chứa file disk của VM
 Lưu ý: mỗi khi reboot lại máy ta cần mount lại các thư mục này nếu không muốn bạn mount nó bằng file `/etc/fstab`
 
 * Kiểm tra : `mount | grep /storage`
+<a name="kvm"></a>
+
 ### 3.Cài đặt KVM
 Thực hiện cài KVM trên cả 2 máy KVM Host. 
 
@@ -165,6 +169,8 @@ Thêm vào `cache='none'` để trách trường hợp migrate bị mất dữ l
 Sau đó reboot lại VM.
 
 Các bước này nên thực hiện ngay sau khi cài VM kể cả bạn chưa có ý định live migrate ngay lúc này bởi vì cần migrate có thể thực hiện được luôn mà không cần reboot VM khi đã cài các ứng dụng lên.
+<a name="qemu"></a>
+
 ### 4.Kết nối qemu giữa hai KVM host
 Để có thể Live Migrate giữa hai KVM Host này cần phải kết nối được với nhau. Để làm được việc này ta thực hiện các bước sau ở trên cả hai máy KVM Host.
 
@@ -181,7 +187,7 @@ sed -i 's/#LIBVIRTD_ARGS="--listen"/LIBVIRTD_ARGS="--listen"/g' /etc/sysconfig/l
 Restart lại libvirt trên cả hai máy.
 
 `systemctl restart libvirtd`
-
+<a name="mig"></a>
 ### 5.Migrate
 
 Ta kiểm tra VM trên KVM-02, và tạo một số file như hình
