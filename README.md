@@ -22,7 +22,7 @@
 3. [Làm việc với VM trong KVM](thuchanh/work.md)
 4. [Live migrate trên KVM](thuchanh/migrate.md)
 5. [Truy cập VM bằng Console](thuchanh/console.md)
-6. [Thêm Disk và card mạng cho VM](thuchanh/add-disk-nic.md)
+6. [Thêm Disk ](thuchanh/add-disk-nic.md)
 
 
 

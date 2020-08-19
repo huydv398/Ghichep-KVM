@@ -1,4 +1,4 @@
-# Thêm Disk, Card vào VM
+
 ## Thêm Disk
 * Kiểm tra số lượng disk của VM
 
