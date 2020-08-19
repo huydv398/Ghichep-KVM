@@ -18,5 +18,8 @@
 * Có hai phương thức để triển khai máy ảo từ Template là Thin và Clone:
   * Thin: Máy ảo được tạo ra theo phương thức này sẽ sử dụng như một base image, lúc này nó sẽ chuyển sang trạng thái read-only. Cùng với đó, sẽ ó một ổ mới hỗ trợ "copy on read" được thêm vào để lưu trữ mới. Phương thức này sẽ tốn phương thức này sẽ tốn ít dung lượng hơn tuy nhiên các VM tạo ra sẽ phụ thuộc vào base image, chúng sẽ không chạy được nếu không có base image.
 
-
-  
+## Tạo Template
+* Template thực chất là máy ảo được chuyển đổi sang. Quá trình này gồm 3 bước:
+  * Bước 1: Cài đặt máy ảo với đầy đủ các phần mềm cần thiết để biến nó thành một Template, ví dụ(LAMP, LEMP, WordPress hoặc WordOps)
+  * Bước 2: Loại bỏ tất cả các cài đặt cụ thể ví dụ như Password SSH, địa chỉ MAC.. để đảm bảo rằng nó sẽ không được áp dụng giống với nhau tới tất cả các máy ảo đươc tạo ra sau này.
+  * Bước 3: Đánh dấu máy ảo là Template bằng việc đổi tên.
