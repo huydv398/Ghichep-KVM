@@ -98,3 +98,4 @@ sửa file `fstab`
 
 ![](../image/screenshot_10.png)
 
+1
