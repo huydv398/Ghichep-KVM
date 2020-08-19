@@ -24,7 +24,7 @@
 2. [Tìm hiểu câu lệnh virsh](lythuyet/cmd-virsh.md)
 3. [Làm việc với VM trong KVM](thuchanh/work.md)
 4. [Live migrate trên KVM](thuchanh/migrate.md)
-
+5. [Add disk & Interface Internet](thuchanh/add-disk-nic.md)
 
 
 
