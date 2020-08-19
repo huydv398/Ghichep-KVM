@@ -16,6 +16,9 @@
 8. [Tìm hiểu về File Image trong KVM](lythuyet/image-file.md)
 9. [Tìm hiểu các File chứa dữ liệu của KVM](lythuyet/infoFile.md)
 10. [Tìm hiểu về file XML trong KVM Và Tạo VM bằng file XML](lythuyet/xml.md)
+11. [Tìm hiểu về tempate và Snapshot](lythuyet/template&snapshot.md)
+
+
 ## Thực hành
 1. [Cài đặt KVM in CentOS-7](thuchanh/installKVM.md)
 2. [Tìm hiểu câu lệnh virsh](lythuyet/cmd-virsh.md)
