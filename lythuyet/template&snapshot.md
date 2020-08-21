@@ -16,7 +16,7 @@
   * `Template`: nó có thể được dùng để tạo ra nhiều clone của máy khác nữa.
 * Có hai phương thức để triển khai máy ảo từ Template là Thin và Clone:
   * Thin: Máy ảo được tạo ra theo phương thức này sẽ sử dụng như một base image, lúc này nó sẽ chuyển sang trạng thái read-only. Cùng với đó, sẽ ó một ổ mới hỗ trợ "copy on read" được thêm vào để lưu trữ mới. Phương thức này sẽ tốn phương thức này sẽ tốn ít dung lượng hơn tuy nhiên các VM tạo ra sẽ phụ thuộc vào base image, chúng sẽ không chạy được nếu không có base image.
-
+  * Clone: Máy ảo được tạo ra làn một bản sao hoàn chỉnh và hoàn toàn không phụ thộc vào template cũng như máy ảo ban đầu. Mặc dù vậy, nó sẽ chiếm dung lượng giống như máy ảo ban đầu.
 <a name="2">
 
 ## Tạo Template
