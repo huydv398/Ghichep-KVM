@@ -1,27 +1,28 @@
-# Tìm hiểu về Template và snapshot trong KVM
-1. [Hướng dẫn tao Template từ VM](#1)
-2. [Giới thiệu về Template trong KVM]()
-3. [Hướng dẫn tạo và quản lý Template]()
+# Tìm hiểu về Template 
+1. [Giới thiệu về Template trong KVM](#1)
+2. [Hướng dẫn tao Template từ VM](#2)
+3. [Hướng dẫn tạo và quản lý Template](#3)
 
-
-## Hướng dẫn tao Template từ VM
+<a name="1">
+## Hướng dẫn tạo Template từ VM
 
 ### 1. Giới thiệu về Template trong KVM
 * Template là một dạng file image pre-configured của hệ điều hành dùng để tạo nhanh các máy ảo. Sử dụng Template sẽ tránh những bước cài đặt lặp đi lặp lại và tiết kiệm nhiều thời gian hơn so với từng bước một.
 * Việc sử dụng Template, số bước mà người dùng phải thực hiện sẽ được rút ngắn đi rất nhiều, chỉ cần thực hiện 1 lần các bước trùng lặp rồi tạo Template là bạn có thể rút ngắn được thời gian
+
 ### 2. Hướng dẫn tạo và quản lý Template
 * Hai khái niệm cần phân biệt là `clone` và `Template`.
   * `Clone`: Tạo ra một bản sao của máy ảo
   * `Template`: nó có thể được dùng để tạo ra nhiều clone của máy khác nữa.
 * Có hai phương thức để triển khai máy ảo từ Template là Thin và Clone:
   * Thin: Máy ảo được tạo ra theo phương thức này sẽ sử dụng như một base image, lúc này nó sẽ chuyển sang trạng thái read-only. Cùng với đó, sẽ ó một ổ mới hỗ trợ "copy on read" được thêm vào để lưu trữ mới. Phương thức này sẽ tốn phương thức này sẽ tốn ít dung lượng hơn tuy nhiên các VM tạo ra sẽ phụ thuộc vào base image, chúng sẽ không chạy được nếu không có base image.
-
+<a name="2">
 ## Tạo Template
 * Template thực chất là máy ảo được chuyển đổi sang. Quá trình này gồm 3 bước:
   * Bước 1: Cài đặt máy ảo với đầy đủ các phần mềm cần thiết để biến nó thành một Template, ví dụ(LAMP, LEMP, WordPress hoặc WordOps)
   * Bước 2: Loại bỏ tất cả các cài đặt cụ thể ví dụ như Password SSH, địa chỉ MAC.. để đảm bảo rằng nó sẽ không được áp dụng giống với nhau tới tất cả các máy ảo đươc tạo ra sau này.
   * Bước 3: Đánh dấu máy ảo là Template bằng việc đổi tên.
-
+<a name="3">
 ### Các bước tạo Templates
 
 * KVM đã được cài thành công và VM đã được cài đủ option để chọn Template.
@@ -99,3 +100,26 @@ hoặc:
 `virt-clone --original-xml  /root/template-Setup_WP.xml -f /var/lib/libvirt/images/newvm2.qcow2 -n newvm2 --auto-clone`
 
 >**Chú ý**: nếu sử dụng option `--preserve-data` sẽ tiết kiệm bộ nhớ, nhưng khi file template bị xóa thì các máy ảo sử dụng option này cũng không thể chạy được.
+### Hợp nhất sử dụng Blockcommit
+* Kiểm tra ổ đĩa hiện tại mà máy ảo đang sử dụng
+
+`virsh domblklist [tên VM]`
+
+![huydv](../image/Screenshot_154.png)
+
+
+* Xem thông tin backingfile của ổ đĩa đang được sử dụng:
+
+`qemu-img info --backing-chain [Đường dẫn file] | grep backing`
+
+ví dụ
+
+`qemu-img info --backing-chain /var/lib/libvirt/images/newvm2.snapshot3 | grep backing`
+
+![huydv](../image/Screenshot_154.png)
+
+* Hợp nhất snapshot:
+
+`virsh blockcommit [tên vm] hda --verbose --pivot --active`
+
+`virsh blockcommit newvm2 /var/lib/libvirt/images/newvm2.snapshot1 --verbose --pivot --active`
