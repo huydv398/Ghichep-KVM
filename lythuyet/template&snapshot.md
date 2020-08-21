@@ -25,6 +25,7 @@
   * Bước 2: Loại bỏ tất cả các cài đặt cụ thể ví dụ như Password SSH, địa chỉ MAC.. để đảm bảo rằng nó sẽ không được áp dụng giống với nhau tới tất cả các máy ảo đươc tạo ra sau này.
   * Bước 3: Đánh dấu máy ảo là Template bằng việc đổi tên.
 <a name="3">
+
 ### Các bước tạo Templates
 
 * KVM đã được cài thành công và VM đã được cài đủ option để chọn Template.
