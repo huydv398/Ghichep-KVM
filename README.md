@@ -23,7 +23,7 @@
 4. [Live migrate trên KVM](thuchanh/migrate.md)
 5. [Truy cập VM bằng Console](thuchanh/console.md)
 6. [Thêm Disk ](thuchanh/add-disk-nic.md)
-7. [Tìm hiểu về cách tạo Template và Snapshot](lythuyet/template&snapshot.md)
+7. [Tìm hiểu về cách tạo Template](lythuyet/template&snapshot.md)
 8. [TÌm hiểu về snapshot](lythuyet/snap.md)
 
 
