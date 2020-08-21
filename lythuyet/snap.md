@@ -1,7 +1,15 @@
 Hướng dẫn tạo Snapshot trên VM
-1. [Hướng dẫn tạo snapshot]()
-5. [Hướng dẫn tạo và quản lý Internal Snapshot]()
-6. [Hướng dẫn tạo và quản lý External Snapshot]()
+1. [Giới thiệu snapshot](#1)
+2. [Hướng dẫn tạo và quản lý Internal Snapshot](#2)
+3. [Hướng dẫn tạo và quản lý External Snapshot](#3)
+4. [Revert lại trạng thái của snapshot](#4)
+5. [Xóa Snapshot](#5)
+
+<a name="1">
+<a name="2">
+<a name="3">
+<a name="4">
+<a name="5">
 
 ## Giới thiệu
 
@@ -14,6 +22,7 @@ Hướng dẫn tạo Snapshot trên VM
         * Không không hoạt động với LVM storage pôls
     * External: dựa theo cơ chế *copy-on-write*. Khi Snapshot được tạo, ổ đĩa ban đầu sẽ có trạng thái read-only và có một ổ đĩa khác đè dữ liệu lên để lưu dữ liệu mới.
         *  Ổ đĩa được đè lên được tạo ra có định dang Qcow2, hoàn toàn trống và nó có thể chứa lượng dữ liệu gióng như ổ đĩa ban đầu. External snapshot có thể được tạo với bất kỳ định dạng ổ đĩa nào mà Libvirt hỗ trợ. Tuy nhiên không có công cụ đồ họa hỗ trợ cho việc này.
+<a name="2">
 
 ## Tạo và quản lý Internal Snapshot
 * Internal Snapshot chỉ hỗ trợ định dạng qcow2 vì thế hãy rằng ổ đĩa của máy ảo thuộc định dạng nào bằng câu lệnh `qemu-img info [đường dẫn disk]`. Nếu định dạng ổ đĩa không phải định dạng qcow2, hãy chuyển nó sang định dạng này bằng câu lệnh `qemu-img convert`
@@ -60,6 +69,8 @@ ví dụ:
 `virsh snapshot-delete [Tên vm] [tên Snapshot]`
 
 ![huydv](../image/Screenshot_138.png)
+<a name="3">
+
 ## Tạo và quản lý External Snapshot
 ### Tạo Snapshot
 * Tiến hành kiểm tra ổ đĩa mà máy ảo muốn tạo Snapshot đang sử dụng bằng câu lệnh:
@@ -93,6 +104,7 @@ ví dụ:
 Lúc này ổ đĩa cũ đã trở thành trạng thái `read-only`, vm dùng ổ đĩa mới đẻ lưu dữ liệu và `backingfile` sẽ là ổ đĩa ban đầu. Hãy xem thông tin của ổ đĩa này:
 
 ![huydv](../image/Screenshot_146.png)
+<a name="4">
 
 ### Revert lại trạng thái snapshot của External Snapshot
 
@@ -137,6 +149,8 @@ Reboot lại máy ảo
 `virsh domblklist [tên VM]`
 
 ![huydv](../image/Screenshot_153.png)
+
+<a name="5">
 
 ## Xóa External Snapshot
 * Quy trình xóa một External snapshot khá phức tạp. Để có thể xoám trước tiên bạn phải tiến hành hợp nhất nó với ổ đĩa cũ. Có hai kiểu hợp nhất đó là:
