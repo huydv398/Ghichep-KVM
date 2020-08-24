@@ -21,7 +21,7 @@ Hướng dẫn tạo Snapshot trên VM
         * VM sẽ bị ngưng lại khi Snapshot 
         * Không không hoạt động với LVM storage pôls
     * External: dựa theo cơ chế *copy-on-write*. Khi Snapshot được tạo, ổ đĩa ban đầu sẽ có trạng thái read-only và có một ổ đĩa khác đè dữ liệu lên để lưu dữ liệu mới.
-        *  Ổ đĩa được đè lên được tạo ra có định dang Qcow2, hoàn toàn trống và nó có thể chứa lượng dữ liệu gióng như ổ đĩa ban đầu. External snapshot có thể được tạo với bất kỳ định dạng ổ đĩa nào mà Libvirt hỗ trợ. Tuy nhiên không có công cụ đồ họa hỗ trợ cho việc này.
+        *  Ổ đĩa được đè lên được tạo ra có định dang Qcow2, hoàn toàn trống và nó có thể chứa lượng dữ liệu giống như ổ đĩa ban đầu. External snapshot có thể được tạo với bất kỳ định dạng ổ đĩa nào mà Libvirt hỗ trợ. Tuy nhiên không có công cụ đồ họa hỗ trợ cho việc này.
 <a name="2">
 
 ## Tạo và quản lý Internal Snapshot
@@ -156,3 +156,26 @@ Reboot lại máy ảo
 * Quy trình xóa một External snapshot khá phức tạp. Để có thể xoám trước tiên bạn phải tiến hành hợp nhất nó với ổ đĩa cũ. Có hai kiểu hợp nhất đó là:
     * Blockcommit: Hợp nhất dữ liệu với ổ đĩa cũ
     * Blockpull: Hợp nhất dữ liệu với ổ đĩa được tạo ra khi snapshot. Ổ đĩa sau khi hợp nhất sẽ luôn có định dạng qcow2.
+### Hợp nhất sử dụng Blockcommit
+* Kiểm tra ổ đĩa hiện tại mà máy ảo đang sử dụng
+
+`virsh domblklist [tên VM]`
+
+![huydv](../image/Screenshot_154.png)
+
+
+* Xem thông tin backingfile của ổ đĩa đang được sử dụng:
+
+`qemu-img info --backing-chain [Đường dẫn file] | grep backing`
+
+ví dụ
+
+`qemu-img info --backing-chain /var/lib/libvirt/images/newvm2.snapshot3 | grep backing`
+
+![huydv](../image/Screenshot_154.png)
+
+* Hợp nhất snapshot:
+
+`virsh blockcommit [tên vm] hda --verbose --pivot --active`
+
+`virsh blockcommit newvm2 /var/lib/libvirt/images/newvm2.snapshot1 --verbose --pivot --active`

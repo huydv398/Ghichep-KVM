@@ -25,7 +25,7 @@
 6. [Thêm Disk ](thuchanh/add-disk-nic.md)
 7. [Tìm hiểu về cách tạo Template](lythuyet/template&snapshot.md)
 8. [Tìm hiểu về snapshot](lythuyet/snap.md)
-
+9. [Sử dụng Blockcommit và pullcommit](thuchanh/commit.md)
 
 Link tham khảo:
 * https://news.cloud365.vn/?s=kvm
