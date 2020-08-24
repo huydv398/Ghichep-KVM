@@ -103,26 +103,3 @@ hoặc:
 `virt-clone --original-xml  /root/template-Setup_WP.xml -f /var/lib/libvirt/images/newvm2.qcow2 -n newvm2 --auto-clone`
 
 >**Chú ý**: nếu sử dụng option `--preserve-data` sẽ tiết kiệm bộ nhớ, nhưng khi file template bị xóa thì các máy ảo sử dụng option này cũng không thể chạy được.
-### Hợp nhất sử dụng Blockcommit
-* Kiểm tra ổ đĩa hiện tại mà máy ảo đang sử dụng
-
-`virsh domblklist [tên VM]`
-
-![huydv](../image/Screenshot_154.png)
-
-
-* Xem thông tin backingfile của ổ đĩa đang được sử dụng:
-
-`qemu-img info --backing-chain [Đường dẫn file] | grep backing`
-
-ví dụ
-
-`qemu-img info --backing-chain /var/lib/libvirt/images/newvm2.snapshot3 | grep backing`
-
-![huydv](../image/Screenshot_154.png)
-
-* Hợp nhất snapshot:
-
-`virsh blockcommit [tên vm] hda --verbose --pivot --active`
-
-`virsh blockcommit newvm2 /var/lib/libvirt/images/newvm2.snapshot1 --verbose --pivot --active`
