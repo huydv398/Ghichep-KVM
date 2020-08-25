@@ -2,10 +2,11 @@
 * Một công cụ quản lý tập trung hạ tầng KVM hiệu quả, tiện dụng
 ## Mô Hình
 
+![huydv](../image/Screenshot_196.png)
 ## IPPlanning
 
 ## Cài đặt trên KVM
-
+[tại đây](https://github.com/huydv398/Ghichep-KVM/blob/master/thuchanh/installKVM.md)
 ## Cài đặt trên Node Webvirt 
 
 Cài đặt các package cần thiết:
