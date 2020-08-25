@@ -18,6 +18,7 @@
 10. [Tìm hiểu về file XML trong KVM Và Tạo VM bằng file XML](lythuyet/xml.md)
 ## Thực hành
 1. [Cài đặt KVM in CentOS-7](thuchanh/installKVM.md)
+2. [Hướng dẫn cài đặt KVM trên Ubuntu 18-04](thuchanh/installkvmu18.md)
 2. [Tìm hiểu câu lệnh virsh](lythuyet/cmd-virsh.md)
 3. [Làm việc với VM trong KVM](thuchanh/work.md)
 4. [Live migrate trên KVM](thuchanh/migrate.md)
@@ -26,7 +27,8 @@
 7. [Tìm hiểu về cách tạo Template](lythuyet/template&snapshot.md)
 8. [Tìm hiểu về snapshot](lythuyet/snap.md)
 9. [Sử dụng Blockcommit và pullcommit](thuchanh/commit.md)
-
-Link tham khảo:
+10. [Định cấu hình Network Bridge in Ubuntu](thuchanh/configbr.md)
+11. [Cài đặt webvirtcloud trên CentOS-7](thuchanh/webvirtcloud.md)
+12. [Sử dụng webvirtcloud](thuchanh/usewebvirt.md)
 * https://news.cloud365.vn/?s=kvm
 * https://github.com/danghai1996/thuctapsinh/tree/master/HaiDD/KVM
