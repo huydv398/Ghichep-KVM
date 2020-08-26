@@ -30,5 +30,11 @@
 10. [Định cấu hình Network Bridge in Ubuntu](thuchanh/configbr.md)
 11. [Cài đặt webvirtcloud trên CentOS-7](thuchanh/webvirtcloud.md)
 12. [Sử dụng webvirtcloud](thuchanh/usewebvirt.md)
-* https://news.cloud365.vn/?s=kvm
-* https://github.com/danghai1996/thuctapsinh/tree/master/HaiDD/KVM
+* [Trang tin tức cloud365](https://news.cloud365.vn/?s=kvm)
+* [ThaoNV](https://github.com/meditechopen/meditech-thuctap/tree/6c279735a8904e33bc37fca61ee2018913fdd83c/ThaoNV/KVM)
+* [HaiDD](https://github.com/danghai1996/thuctapsinh/tree/master/HaiDD/KVM)
+
+![huydv](../image/Screenshot_197.png)
+![huydv](../image/Screenshot_198.png)
+![huydv](../image/Screenshot_199.png)
+![huydv](../image/Screenshot_200.png)
